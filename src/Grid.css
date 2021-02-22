@@ -1,0 +1,44 @@
+.grid-container {
+    display: grid;
+    grid-template-areas:    'zone1 zone2 zone3';
+    grid-gap: .4em;
+    align-content: center;
+    background-color: blueviolet;
+    padding: .3em;
+}
+
+.grid-container > div {
+    background-color: rgb(172, 137, 204);
+    display: grid;
+    text-align: center;
+    align-content: center;
+    font-size: 1em;
+    padding: .2em;
+}
+
+button {
+    margin: 1em;
+}
+
+/* .zone1 {grid-area: zone1;}
+.zone2 {grid-area: zone2;}
+.zone3 {grid-area: zone3;}
+.zone5 {grid-area: zone5;}
+.zone4 {grid-area: zone4;}
+.zone6 {grid-area: zone6;}
+.zone7 {grid-area: zone7;}
+.zone8 {grid-area: zone8;}
+.zone9 {grid-area: zone9;} 
+
+    grid-template-areas:    'zone1 zone2 zone3' 
+                            'zone4 zone5 zone6' 
+
+                            'zone7 zone8 zone9' ;
+
+
+slack {
+        grid-template-columns: 3em 3em 3em;
+    grid-template-rows: 3em 3em 3em;
+}
+
+*/
