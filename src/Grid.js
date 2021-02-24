@@ -24,98 +24,89 @@ function Grid() {
         { name: "G", position: 6 }, { name: "H", position: 7 }, { name: "I", position: 8 }
     ];
 
-
-    function moveCol3Dn(tileArray) {
-        console.log(Object.keys(tileArray).length);
-
+    //  affect 2,5,8
+    function moveCol3Dn(grid) {
+        console.log(Object.keys(grid).length);
         for (let i = 0; i < Object.keys(grid).length; i++) {
-
             if ((grid[i].position + 1) % 3 === 0) {
                 grid[i].position += 3;
             } if ((grid[i].position + 1) > 9) {
                 grid[i].position = 2;
-                // setGrid([...tileArray]);
-                // grid.sort(function (a, b) {
-                //     return a.position - b.position;
-                // });
             }
-
         }
-
-      
         console.log('at end', grid);
-
         grid.sort(function (a, b) {
             return a.position - b.position;
-              
+        });
+        setGrid([...grid]);
+    }
+
+    //  affect 0,3,6
+    function moveCol1Dn(grid) {
+        console.log(Object.keys(grid).length);
+        for (let i = 0; i < Object.keys(grid).length; i++) {
+            if ((grid[i].position) % 3 === 0 || (grid[i].position) === 0) {
+                grid[i].position += 3;
+            } if ((grid[i].position) === 9) {
+                grid[i].position = 0;
+            }
+        }
+        console.log('at end 1Dn', grid);
+        grid.sort(function (a, b) {
+            return a.position - b.position;
         });
         setGrid([...grid]);
     }
 
 
-
-
-
-
-    // move column 3 from (C, F, I ) to (I, C, F)
-    // find objects at position 3,6,9 and set them to 6,9,3, respectively (to C,F,I).
-    // sort tileArray by position.
-    // rerender.
-    // function moveCol3Dn(tileArray) {
-    //     console.log(Object.keys(tileArray).length);
-
-    //     for (let i = 0; i < Object.keys(tileArray).length; i++) {
-
-    //         if (tileArray[i].position % 3 === 0) {
-    //             tileArray[i].position += 3;
-    //         } if (tileArray[i].position > 9) {
-    //             tileArray[i].position = 3;
-    //             tileArray.sort(function (a, b) {
-    //                 return a.position - b.position;
-    //             });
-    //         }
-        
-    //     }
-    //     console.log('at end', tileArray);
-       
-    //     return
-    // }
-
-
-    function moveCol3Up(tileArray) {
-        console.log('at start', tileArray);
-        console.log(Object.keys(tileArray).length);
-
-        for (let i = 0; i < Object.keys(tileArray).length; i++) {
-
-            if (tileArray[i].position % 3 === 0) {
-                tileArray[i].position -= 3;
-            } if (tileArray[i].position = 0) {
-                tileArray[i].position = 9;
+    //  affect 2,5,8
+    function moveCol3Up(grid) {
+        console.log('at start', grid);
+        console.log(Object.keys(grid).length);
+        for (let i = 0; i < Object.keys(grid).length; i++) {
+            if ((grid[i].position+1) % 3 === 0) {
+                grid[i].position -= 3;
+            } if ((grid[i].position+1) === 0) {
+                grid[i].position = 8;
             }
         }
-        tileArray.sort(tileArray.position);
-        console.log('at end', tileArray);
-        return 
+        console.log('at end 3up', grid);
+        grid.sort(function (a, b) {
+            return a.position - b.position;
+        });
+        setGrid([...grid]);
+    }
+
+    //  affect 0,3,6
+    function moveCol1Up(grid) {
+        console.log('at start', grid);
+        console.log(Object.keys(grid).length);
+        for (let i = 0; i < Object.keys(grid).length; i++) {
+            if ((grid[i].position) % 3 === 0) {
+                grid[i].position -= 3;
+            } if ((grid[i].position) < 0) {
+                grid[i].position = 6;
+            }
+        }
+        console.log('at end 1up', grid);
+        grid.sort(function (a, b) {
+            return a.position - b.position;
+        });
+        setGrid([...grid]);
     }
 
  
 
-    /*  Goals
-        1.  build some grids X
-        2.  play with their positions X 
-        3.  build functions to move them.
-        4.  Build a function that moves them as LL would have them move.  (or close enough if the middle moves, f-it)
-
-        Notes:
-            {zone#} inline style doesn't seem to work, drat.
-    */
     return (
         <>
             <p>Gridland Conveyor Park</p>
            
-            <button onClick={() => moveCol3Dn(tileArray)}>moveCol3Dn</button>
-            <button onClick={() => moveCol3Up(tileArray)}>moveCol3Up</button>
+            <button onClick={() => moveCol3Dn(grid)}>moveCol3Dn</button>
+            <button onClick={() => moveCol3Up(grid)}>moveCol3Up</button>
+
+            <button onClick={() => moveCol1Dn(grid)}>moveCol1Dn</button>
+            <button onClick={() => moveCol1Up(grid)}>moveCol1Up</button>
+
 
             <div className="grid-container">
                 {grid.map(tile => {
@@ -133,20 +124,20 @@ function Grid() {
 export default Grid;
 
 /*
-    function moveCol3Up(tileArray) {
-        console.log('at start',tileArray);
-        console.log(Object.keys(tileArray).length);
+    function moveCol3Up(grid) {
+        console.log('at start',grid);
+        console.log(Object.keys(grid).length);
 
-        for (let i = 0; i < Object.keys(tileArray).length; i++) {
+        for (let i = 0; i < Object.keys(grid).length; i++) {
 
-            if (tileArray[i].position % 3 === 0) {
-                tileArray[i].position -= 3;
-            } if (tileArray[i].position = 0) {
-                tileArray[i].position = 9;
+            if (grid[i].position % 3 === 0) {
+                grid[i].position -= 3;
+            } if (grid[i].position = 0) {
+                grid[i].position = 9;
             }
         }
-        tileArray.sort(tileArray.position);
-        console.log('at end', tileArray);
+        grid.sort(grid.position);
+        console.log('at end', grid);
         return
     }
 
