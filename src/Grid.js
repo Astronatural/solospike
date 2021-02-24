@@ -14,9 +14,9 @@ function Grid() {
         { name: "G", position: 6 }, { name: "H", position: 7 }, { name: "I", position: 8 }
     ]);
 
-// let [turnCount, setTurnCount] = useState(Number);
-//     setTurnCount(turnCount + 1);
-//     <p>{turnCount}</p>
+    // let [turnCount, setTurnCount] = useState(Number);
+    //     setTurnCount(turnCount + 1);
+    //     <p>{turnCount}</p>
 
     let tileArray = [
         { name: "A", position: 0 }, { name: "B", position: 1 }, { name: "C", position: 2 },
@@ -64,9 +64,9 @@ function Grid() {
         console.log('at start', grid);
         console.log(Object.keys(grid).length);
         for (let i = 0; i < Object.keys(grid).length; i++) {
-            if ((grid[i].position+1) % 3 === 0) {
+            if ((grid[i].position + 1) % 3 === 0) {
                 grid[i].position -= 3;
-            } if ((grid[i].position+1) === 0) {
+            } if ((grid[i].position + 1) === 0) {
                 grid[i].position = 8;
             }
         }
@@ -95,18 +95,57 @@ function Grid() {
         setGrid([...grid]);
     }
 
- 
+    //  affect 0,1,2
+    function moveRow1R(grid) {
+        for (let i = 0; i <= 2; i++) {  //  could change < op to be ({total_tiles}/{total_tiles})
+            if ((grid[i].position) < 3) {
+                grid[i].position += 1;
+            } if (grid[i].position === 3) {
+                grid[i].position = 0;
+            }
+        }
+        console.log('at end 1R', grid);
+        grid.sort(function (a, b) {
+            return a.position - b.position;
+        });
+        setGrid([...grid]);
+    }
+
+    //  affect 0,1,2
+    function moveRow1L(grid) {
+        for (let i = 0; i <= 2; i++) {  //  could change < op to be ({total_tiles}/{total_tiles})
+            if ((grid[i].position) < 3) {
+                grid[i].position -= 1;
+            } if (grid[i].position < 0) {
+                grid[i].position = 2;
+            }
+        }
+        console.log('at end 1R', grid);
+        grid.sort(function (a, b) {
+            return a.position - b.position;
+        });
+        setGrid([...grid]);
+    }
+
 
     return (
         <>
             <p>Gridland Conveyor Park</p>
-           
-            <button onClick={() => moveCol3Dn(grid)}>moveCol3Dn</button>
-            <button onClick={() => moveCol3Up(grid)}>moveCol3Up</button>
+            <div className="grid-container">
 
-            <button onClick={() => moveCol1Dn(grid)}>moveCol1Dn</button>
-            <button onClick={() => moveCol1Up(grid)}>moveCol1Up</button>
+                <button onClick={() => moveCol3Dn(grid)}>moveCol3Dn</button>
+                <button onClick={() => moveCol3Up(grid)}>moveCol3Up</button>
 
+                <button onClick={() => moveCol1Dn(grid)}>moveCol1Dn</button>
+                <button onClick={() => moveCol1Up(grid)}>moveCol1Up</button>
+
+                <button onClick={() => moveRow1R(grid)}>moveRow1R</button>
+                <button onClick={() => moveRow1L(grid)}>moveRow1L</button>
+{/* 
+                <button onClick={() => moveRow3R(grid)}>moveRow3R</button>
+                <button onClick={() => moveRow3L(grid)}>moveRow3L</button>              */}
+
+            </div>
 
             <div className="grid-container">
                 {grid.map(tile => {
