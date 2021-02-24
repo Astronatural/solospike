@@ -127,6 +127,40 @@ function Grid() {
         setGrid([...grid]);
     }
 
+    
+    //  affect 6,7,8
+    function moveRow3R(grid) {
+        for (let i = 6; i < 9; i++) {  
+            if ((grid[i].position) < 19) {
+                grid[i].position += 1;
+            } if (grid[i].position > 8) {
+                grid[i].position = 6;
+            }
+        }
+        console.log('at end 1R', grid);
+        grid.sort(function (a, b) {
+            return a.position - b.position;
+        });
+        setGrid([...grid]);
+    }
+
+
+    //  affect 6,7,8
+    function moveRow3L(grid) {
+        for (let i = 6; i < 9; i++) {
+            if ((grid[i].position) < 19) {
+                grid[i].position -= 1;
+            } if (grid[i].position < 6) {
+                grid[i].position = 8;
+            }
+        }
+        console.log('at end 1R', grid);
+        grid.sort(function (a, b) {
+            return a.position - b.position;
+        });
+        setGrid([...grid]);
+    }
+
 
     return (
         <>
@@ -141,9 +175,9 @@ function Grid() {
 
                 <button onClick={() => moveRow1R(grid)}>moveRow1R</button>
                 <button onClick={() => moveRow1L(grid)}>moveRow1L</button>
-{/* 
+
                 <button onClick={() => moveRow3R(grid)}>moveRow3R</button>
-                <button onClick={() => moveRow3L(grid)}>moveRow3L</button>              */}
+                <button onClick={() => moveRow3L(grid)}>moveRow3L</button>             
 
             </div>
 
