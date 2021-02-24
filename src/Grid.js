@@ -9,9 +9,9 @@ function Grid() {
     }, []);
 
     let [grid, setGrid] = useState([
-        { name: "A", position: 1 }, { name: "B", position: 2 }, { name: "C", position: 3 },
-        { name: "D", position: 4 }, { name: "E", position: 5 }, { name: "F", position: 6 },
-        { name: "G", position: 7 }, { name: "H", position: 8 }, { name: "I", position: 9 }
+        { name: "A", position: 0 }, { name: "B", position: 1 }, { name: "C", position: 2 },
+        { name: "D", position: 3 }, { name: "E", position: 4 }, { name: "F", position: 5 },
+        { name: "G", position: 6 }, { name: "H", position: 7 }, { name: "I", position: 8 }
     ]);
 
 // let [turnCount, setTurnCount] = useState(Number);
@@ -19,9 +19,9 @@ function Grid() {
 //     <p>{turnCount}</p>
 
     let tileArray = [
-        { name: "A", position: 1 }, { name: "B", position: 2 }, { name: "C", position: 3 },
-        { name: "D", position: 4 }, { name: "E", position: 5 }, { name: "F", position: 6 },
-        { name: "G", position: 7 }, { name: "H", position: 8 }, { name: "I", position: 9 }
+        { name: "A", position: 0 }, { name: "B", position: 1 }, { name: "C", position: 2 },
+        { name: "D", position: 3 }, { name: "E", position: 4 }, { name: "F", position: 5 },
+        { name: "G", position: 6 }, { name: "H", position: 7 }, { name: "I", position: 8 }
     ];
 
 
@@ -30,10 +30,10 @@ function Grid() {
 
         for (let i = 0; i < Object.keys(grid).length; i++) {
 
-            if (grid[i].position % 3 === 0) {
+            if ((grid[i].position + 1) % 3 === 0) {
                 grid[i].position += 3;
-            } if (grid[i].position > 9) {
-                grid[i].position = 3;
+            } if ((grid[i].position + 1) > 9) {
+                grid[i].position = 2;
                 // setGrid([...tileArray]);
                 // grid.sort(function (a, b) {
                 //     return a.position - b.position;
