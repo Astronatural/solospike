@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import 'SevenBy.css';
+import './SevenBy.css';
 
 function SevenBy () {
 
@@ -18,7 +18,7 @@ function SevenBy () {
 
     return (
         <>
-            <p>Gridland Conveyor Park</p>
+            <p>Bear Conveyor Park</p>
             <div className="button-container">
                 {/* <button onClick={() => moveCol1Dn(grid)}>moveCol1Dn</button>
                 <button onClick={() => moveCol1Up(grid)}>moveCol1Up</button>
@@ -63,7 +63,7 @@ function SevenBy () {
 
             </div>
 
-            <div className="grid-container">
+            <div className="bear-container">
                 {grid.map(tile => {
                     return (
                         <div key={tile.position}>{tile.name}</div>

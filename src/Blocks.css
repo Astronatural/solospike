@@ -1,0 +1,58 @@
+.block-container {
+    grid-gap: .4em;
+    align-content: center;
+    background-color: blueviolet;
+    padding: .3em;
+}
+
+
+.zone1 {
+    position: absolute;
+    left: 33%;
+}
+
+.zone2 {
+    position: absolute;
+}
+
+.zone3 {
+    position: absolute;
+    right: 33%;
+}
+
+.zone4 {
+    position: absolute;
+    left: 33%;
+    top: 33%;
+}
+
+.zone5 {
+    position: absolute;
+    top: 33%;
+
+}
+
+.zone6 {
+    position: absolute;
+    right: 33%;
+    top: 33%;
+}
+
+.zone7 {
+    position: absolute;
+    left: 33%;
+    top: 66%;
+}
+
+.zone8 {
+    position: absolute;
+        top: 66%;
+
+}
+
+.zone9 {
+    position: absolute;
+    right: 33%;
+        top: 66%;
+
+}
