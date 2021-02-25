@@ -16,6 +16,38 @@ function SevenBy() {
         { name: "G1", position: 42 }, { name: "G2", position: 43 }, { name: "G3", position: 44 }, { name: "G4", position: 45 }, { name: "G5", position: 46 }, { name: "G6", position: 47 }, { name: "G7", position: 48 }
     ]);
 
+    //  affect A7->G7 GTG  6->48
+    function moveCol7Up(grid) {
+        for (let i = 0; i < 49; i++) {
+            if ((grid[i].position +1) % 7 === 0) {
+                grid[i].position -= 7;
+            } if ((grid[i].position) < 0) {
+                grid[i].position = 48;
+            }
+        }
+        console.log('at end', grid);
+        grid.sort(function (a, b) {
+            return a.position - b.position;
+        });
+        setGrid([...grid]);
+    }
+
+    //  affect A7->G7 GTG  6->48
+    function moveCol7Dn(grid) {
+        for (let i = 0; i < 49; i++) {
+            if ((grid[i].position +1) % 7 === 0) {
+                grid[i].position += 7;
+            } if ((grid[i].position) > 48) {
+                grid[i].position = 6;
+            }
+        }
+        console.log('at end', grid);
+        grid.sort(function (a, b) {
+            return a.position - b.position;
+        });
+        setGrid([...grid]);
+    }
+
     //  affect A6->G6  GTG  5->47
     function moveCol6Up(grid) {
         for (let i = 0; i < 48; i++) {
@@ -208,8 +240,8 @@ function SevenBy() {
                 <button onClick={() => moveCol6Up(grid)}>moveCol6Up</button>
                 <button onClick={() => moveCol6Dn(grid)}>moveCol6Dn</button>
 
-                {/* <button onClick={() => moveCol7Dn(grid)}>moveCol1Dn</button> */}
-                {/* <button onClick={() => moveCol7Up(grid)}>moveCol1Up</button> */}
+                <button onClick={() => moveCol7Up(grid)}>moveCol7Up</button>
+                <button onClick={() => moveCol7Dn(grid)}>moveCol7Dn</button>
 
 
 
