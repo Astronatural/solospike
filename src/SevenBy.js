@@ -15,6 +15,102 @@ function SevenBy() {
         { name: "F1", position: 35 }, { name: "F2", position: 36 }, { name: "F3", position: 37 }, { name: "F4", position: 38 }, { name: "F5", position: 39 }, { name: "F6", position: 40 }, { name: "F7", position: 41 },
         { name: "G1", position: 42 }, { name: "G2", position: 43 }, { name: "G3", position: 44 }, { name: "G4", position: 45 }, { name: "G5", position: 46 }, { name: "G6", position: 47 }, { name: "G7", position: 48 }
     ]);
+    
+    //  affect F1->F7 *** 35-41
+    function moveRow6R(grid) {
+        for (let i = 35; i < 42; i++) {
+            if ((grid[i].position) > 34) {
+                grid[i].position += 1;
+            } if (grid[i].position > 41) {
+                grid[i].position = 35;
+            }
+        }
+        console.log('at end 1R', grid);
+        grid.sort(function (a, b) {
+            return a.position - b.position;
+        });
+        setGrid([...grid]);
+    }
+
+    //  affect F1->F7 *** 35-41
+    function moveRow6L(grid) {
+        for (let i = 35; i < 42; i++) {
+            if ((grid[i].position) > 34) {
+                grid[i].position -= 1;
+            } if (grid[i].position < 35) {
+                grid[i].position = 41;
+            }
+        }
+        console.log('at end 1R', grid);
+        grid.sort(function (a, b) {
+            return a.position - b.position;
+        });
+        setGrid([...grid]);
+    }
+
+    //  affect E1->E7 GTG 28-34
+        function moveRow5R(grid) {
+        for (let i = 0; i < 35; i++) {
+            if ((grid[i].position) > 27) {
+                grid[i].position += 1;
+            } if (grid[i].position > 34) {
+                grid[i].position = 28;
+            }
+        }
+        console.log('at end 1R', grid);
+        grid.sort(function (a, b) {
+            return a.position - b.position;
+        });
+        setGrid([...grid]);
+    }
+
+    //  affect E1->E7 GTG 28-34
+       function moveRow5L(grid) {
+        for (let i = 28; i < 35; i++) {
+            if ((grid[i].position) > 27) {
+                grid[i].position -= 1;
+            } if (grid[i].position < 28) {
+                grid[i].position = 34;
+            }
+        }
+        console.log('at end 1R', grid);
+        grid.sort(function (a, b) {
+            return a.position - b.position;
+        });
+        setGrid([...grid]);
+    }
+
+    //  affect C1->C7 GTG 14-20
+    function moveRow3R(grid) {
+        for (let i = 14; i < 21; i++) {
+            if ((grid[i].position) > 13) {
+                grid[i].position += 1;
+            } if (grid[i].position > 20) {
+                grid[i].position = 14;
+            }
+        }
+        console.log('at end 1R', grid);
+        grid.sort(function (a, b) {
+            return a.position - b.position;
+        });
+        setGrid([...grid]);
+    }
+
+    //  affect C1->C7 GTG 14-20
+    function moveRow3L(grid) {
+        for (let i = 14; i < 21; i++) {
+            if ((grid[i].position) > 13) {
+                grid[i].position -= 1;
+            } if (grid[i].position < 14) {
+                grid[i].position = 20;
+            }
+        }
+        console.log('at end 1R', grid);
+        grid.sort(function (a, b) {
+            return a.position - b.position;
+        });
+        setGrid([...grid]);
+    }
 
     //  affect B1->B7 GTG 7-13
     function moveRow2R(grid) {
@@ -276,11 +372,6 @@ function SevenBy() {
         setGrid([...grid]);
     }
 
-
-
-
-
-
  
 
     return (
@@ -315,18 +406,18 @@ function SevenBy() {
                 <button onClick={() => moveRow2R(grid)}>moveRow2R</button>
                 <button onClick={() => moveRow2L(grid)}>moveRow2L</button>
 
-                {/*  <button onClick={() => moveRow3R(grid)}>moveRow3R</button>
+                 <button onClick={() => moveRow3R(grid)}>moveRow3R</button>
                 <button onClick={() => moveRow3L(grid)}>moveRow3L</button>
 
 
 
-                <button onClick={() => moveRow5R(grid)}>moveRow1R</button>
-                <button onClick={() => moveRow5L(grid)}>moveRow1L</button>
+                <button onClick={() => moveRow5R(grid)}>moveRow5R</button>
+                <button onClick={() => moveRow5L(grid)}>moveRow5L</button>
 
-                <button onClick={() => moveRow6R(grid)}>moveRow1R</button>
-                <button onClick={() => moveRow6L(grid)}>moveRow1L</button>
+                <button onClick={() => moveRow6R(grid)}>moveRow6R</button>
+                <button onClick={() => moveRow6L(grid)}>moveRow6L</button>
 
-                <button onClick={() => moveRow7R(grid)}>moveRow1R</button>
+                {/*  <button onClick={() => moveRow7R(grid)}>moveRow1R</button>
                 <button onClick={() => moveRow7L(grid)}>moveRow1L</button> */}
 
             </div>
