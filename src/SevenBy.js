@@ -16,6 +16,70 @@ function SevenBy() {
         { name: "G1", position: 42 }, { name: "G2", position: 43 }, { name: "G3", position: 44 }, { name: "G4", position: 45 }, { name: "G5", position: 46 }, { name: "G6", position: 47 }, { name: "G7", position: 48 }
     ]);
 
+    //  affect B1->B7 GTG 7-13
+    function moveRow2R(grid) {
+        for (let i = 7; i < 14; i++) {
+            if ((grid[i].position) > 6) {
+                grid[i].position += 1;
+            } if (grid[i].position > 13) {
+                grid[i].position = 7;
+            }
+        }
+        console.log('at end 1R', grid);
+        grid.sort(function (a, b) {
+            return a.position - b.position;
+        });
+        setGrid([...grid]);
+    }
+
+    //  affect B1->B7 GTG 7-13
+    function moveRow2L(grid) {
+        for (let i = 7; i < 14; i++) {
+            if ((grid[i].position) > 6) {
+                grid[i].position -= 1;
+            } if (grid[i].position < 7) {
+                grid[i].position = 13;
+            }
+        }
+        console.log('at end 1R', grid);
+        grid.sort(function (a, b) {
+            return a.position - b.position;
+        });
+        setGrid([...grid]);
+    }
+
+    //  affect A1->A7 GTG 0-6
+    function moveRow1R(grid) {
+        for (let i = 0; i < 7; i++) {
+            if ((grid[i].position) < 7) {
+                grid[i].position += 1;
+            } if (grid[i].position > 6) {
+                grid[i].position = 0;
+            }
+        }
+        console.log('at end 1R', grid);
+        grid.sort(function (a, b) {
+            return a.position - b.position;
+        });
+        setGrid([...grid]);
+    }
+
+    //  affect A1->A7 GTG 0-6
+    function moveRow1L(grid) {
+        for (let i = 0; i < 7; i++) {
+            if ((grid[i].position) < 7) {
+                grid[i].position -= 1;
+            } if (grid[i].position < 0) {
+                grid[i].position = 6;
+            }
+        }
+        console.log('at end 1R', grid);
+        grid.sort(function (a, b) {
+            return a.position - b.position;
+        });
+        setGrid([...grid]);
+    }
+
     //  affect A7->G7 GTG  6->48
     function moveCol7Up(grid) {
         for (let i = 0; i < 49; i++) {
@@ -245,13 +309,13 @@ function SevenBy() {
 
 
 
-                {/* <button onClick={() => moveRow1R(grid)}>moveRow1R</button>
+                 <button onClick={() => moveRow1R(grid)}>moveRow1R</button>
                 <button onClick={() => moveRow1L(grid)}>moveRow1L</button>
 
-                <button onClick={() => moveRow2R(grid)}>moveRow1R</button>
-                <button onClick={() => moveRow2L(grid)}>moveRow1L</button>
+                <button onClick={() => moveRow2R(grid)}>moveRow2R</button>
+                <button onClick={() => moveRow2L(grid)}>moveRow2L</button>
 
-                <button onClick={() => moveRow3R(grid)}>moveRow3R</button>
+                {/*  <button onClick={() => moveRow3R(grid)}>moveRow3R</button>
                 <button onClick={() => moveRow3L(grid)}>moveRow3L</button>
 
 

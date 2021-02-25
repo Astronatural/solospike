@@ -97,7 +97,7 @@ function Grid() {
 
     //  affect 0,1,2
     function moveRow1R(grid) {
-        for (let i = 0; i <= 2; i++) {  //  could change < op to be ({total_tiles}/{total_tiles})
+        for (let i = 0; i <= 2; i++) {  
             if ((grid[i].position) < 3) {
                 grid[i].position += 1;
             } if (grid[i].position === 3) {
@@ -113,7 +113,7 @@ function Grid() {
 
     //  affect 0,1,2
     function moveRow1L(grid) {
-        for (let i = 0; i <= 2; i++) {  //  could change < op to be ({total_tiles}/{total_tiles})
+        for (let i = 0; i <= 2; i++) { 
             if ((grid[i].position) < 3) {
                 grid[i].position -= 1;
             } if (grid[i].position < 0) {
