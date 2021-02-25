@@ -14,9 +14,41 @@ function SevenBy() {
         { name: "E1", position: 28 }, { name: "E2", position: 29 }, { name: "E3", position: 30 }, { name: "E4", position: 31 }, { name: "E5", position: 32 }, { name: "E6", position: 33 }, { name: "E7", position: 34 },
         { name: "F1", position: 35 }, { name: "F2", position: 36 }, { name: "F3", position: 37 }, { name: "F4", position: 38 }, { name: "F5", position: 39 }, { name: "F6", position: 40 }, { name: "F7", position: 41 },
         { name: "G1", position: 42 }, { name: "G2", position: 43 }, { name: "G3", position: 44 }, { name: "G4", position: 45 }, { name: "G5", position: 46 }, { name: "G6", position: 47 }, { name: "G7", position: 48 }
-    ]);
+    ]); 
     
-    //  affect F1->F7 *** 35-41
+    //  affect G1->G7 *** 42-48
+    function moveRow7R(grid) {
+        for (let i = 42; i < 49; i++) {
+            if ((grid[i].position) > 41) {
+                grid[i].position += 1;
+            } if (grid[i].position > 48) {
+                grid[i].position = 42;
+            }
+        }
+        console.log('at end 1R', grid);
+        grid.sort(function (a, b) {
+            return a.position - b.position;
+        });
+        setGrid([...grid]);
+    }
+
+    //  affect G1->G7 *** 42-48
+    function moveRow7L(grid) {
+        for (let i = 42; i < 49; i++) {
+            if ((grid[i].position) > 41) {
+                grid[i].position -= 1;
+            } if (grid[i].position < 42) {
+                grid[i].position = 48;
+            }
+        }
+        console.log('at end 1R', grid);
+        grid.sort(function (a, b) {
+            return a.position - b.position;
+        });
+        setGrid([...grid]);
+    }
+    
+    //  affect F1->F7 GTG 35-41
     function moveRow6R(grid) {
         for (let i = 35; i < 42; i++) {
             if ((grid[i].position) > 34) {
@@ -32,7 +64,7 @@ function SevenBy() {
         setGrid([...grid]);
     }
 
-    //  affect F1->F7 *** 35-41
+    //  affect F1->F7 GTG 35-41
     function moveRow6L(grid) {
         for (let i = 35; i < 42; i++) {
             if ((grid[i].position) > 34) {
@@ -417,8 +449,8 @@ function SevenBy() {
                 <button onClick={() => moveRow6R(grid)}>moveRow6R</button>
                 <button onClick={() => moveRow6L(grid)}>moveRow6L</button>
 
-                {/*  <button onClick={() => moveRow7R(grid)}>moveRow1R</button>
-                <button onClick={() => moveRow7L(grid)}>moveRow1L</button> */}
+                 <button onClick={() => moveRow7R(grid)}>moveRow7R</button>
+                <button onClick={() => moveRow7L(grid)}>moveRow7L</button>
 
             </div>
 
