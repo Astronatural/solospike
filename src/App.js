@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Grid from './Grid.js';
-import Blocks from './Blocks.js';
+import SevenBy from './SevenBy.js';
 
 
 function App() {
@@ -9,8 +9,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-      <Grid/>
-      <Blocks/>
+      <Grid display="none"/>
+      <SevenBy/>
       </header>
     </div>
   );
